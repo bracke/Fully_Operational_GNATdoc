@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.adacore.com/namespaces/tal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>GNATdoc</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel='stylesheet' href='reset.css' />
+  <link rel='stylesheet' href='themes.css' />
+  <link rel='stylesheet' href='gnatdoc.css' />
+  <link rel='stylesheet' href='sidebar.css' />
+
+</head>
+<body>
+  <header>
+    <img src="ada_logo_resized.png"/>
+    <div>
+      <form class="color-picker" action="">
+        <fieldset>
+          <legend class="visually-hidden">Pick a color scheme</legend>
+          <label for="light" class="visually-hidden">Light</label>
+          <input type="radio" name="theme" id="light" checked="checked"/>
+
+          <label for="pink" class="visually-hidden">Pink theme</label>
+          <input type="radio" id="pink" name="theme"/>
+
+          <label for="blue" class="visually-hidden">Blue theme</label>
+          <input type="radio" id="blue" name="theme"/>
+
+          <label for="green" class="visually-hidden">Green theme</label>
+          <input type="radio" id="green" name="theme" />
+
+          <label for="dark" class="visually-hidden">Dark theme</label>
+          <input type="radio" id="dark" name="theme" />
+        </fieldset>
+      </form>
+    </div>
+    <div>
+      <input />
+    </div>
+  </header>
+  <div id="main">
+    <main class='content'>
+      <iframe id="content-iframe" name='document-content' />
+    </main>
+    <div id="sidebar-wrapper">
+      <nav>
+        <div class="nav-title">
+          Compilation Units
+        </div>
+        <ul role="list">
+          <li class="spec" tal:repeat='item gnatdoc/toc'>
+            <a href='error.html' target='document-content' tal:content='item/qualified_name'
+              tal:attributes='href item/full_href' />
+          </li>
+        </ul>
+      </nav>
+
+      <nav>
+        <div class="nav-title">
+          Tagged types
+        </div>
+        <ul role="list">
+          <li tal:repeat='item gnatdoc/classes_toc'>
+            <a href='error.html' target='document-content' tal:content='item/qualified_name'
+              tal:attributes='href item/full_href' />
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

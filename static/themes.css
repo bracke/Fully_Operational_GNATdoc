@@ -1,0 +1,126 @@
+.visually-hidden {
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}
+
+.color-picker>fieldset {
+   border: 0;
+   display: flex;
+   gap: 2rem;
+   width: fit-content;
+   background-color: white;
+   padding: 1rem 3rem;
+   margin-inline: auto;
+   border-radius: 0 0 1rem 1rem;
+}
+
+.color-picker input[type="radio"] {
+   appearance: none;
+   width: 1rem;
+   height: 1rem;
+   outline: 3px solid var(--radio-color, currentColor);
+   outline-offset: 3px;
+   border-radius: 50%;
+}
+
+.color-picker input[type="radio"]:checked {
+   background-color: var(--radio-color);
+}
+
+.color-picker input[type="radio"]#light {
+   --radio-color: gray;
+}
+
+.color-picker input[type="radio"]#pink {
+   --radio-color: pink;
+}
+
+.color-picker input[type="radio"]#blue {
+   --radio-color: blue;
+}
+
+.color-picker input[type="radio"]#green {
+   --radio-color: green;
+}
+
+.color-picker input[type="radio"]#dark {
+   --radio-color: #232323;
+}
+
+:root:has(#pink:checked) {
+   --primary-background: hsl(310 50% 90%);
+   --primary-text: hsl(310 50% 15%);
+   --header-background: hsl(310 50% 100%);
+   --header-text: hsl(310 50% 25%);
+   --footer-background: hsl(310 50% 100%);
+   --footer-text: hsl(310 50% 25%);
+
+}
+
+:root:has(#blue:checked) {
+   --primary-background: hsl(209 50% 90%);
+   --primary-text: hsl(209 50% 15%);
+   --header-background: hsl(209 50% 100%);
+   --header-text: hsl(209 50% 25%);
+   --footer-background: hsl(209 50% 100%);
+   --footer-text: hsl(209 50% 25%);
+}
+
+:root:has(#green:checked) {
+   --primary-background: hsl(109 50% 90%);
+   --primary-text: hsl(109 50% 15%);
+   --header-background: hsl(109 50% 100%);
+   --header-text: hsl(109 50% 25%);
+   --footer-background: hsl(109 50% 100%);
+   --footer-text: hsl(109 50% 25%);
+}
+
+:root:has(#dark:checked) {
+   --primary-background: hsl(209 50% 10%);
+   --primary-text: hsl(209 50% 90%);
+   --header-background: hsl(209 50% 5%);
+   --header-text: hsl(209 50% 80%);
+   --footer-background: hsl(209 50% 5%);
+   --footer-text: hsl(209 50% 80%);
+}
+
+.pink {
+   --primary-background: hsl(310 50% 90%);
+   --primary-text: hsl(310 50% 15%);
+   --header-background: hsl(310 50% 100%);
+   --header-text: hsl(310 50% 25%);
+   --footer-background: hsl(310 50% 100%);
+   --footer-text: hsl(310 50% 25%);
+}
+
+.blue {
+   --primary-background: hsl(209 50% 90%);
+   --primary-text: hsl(209 50% 15%);
+   --header-background: hsl(209 50% 100%);
+   --header-text: hsl(209 50% 25%);
+   --footer-background: hsl(209 50% 100%);
+   --footer-text: hsl(209 50% 25%);
+}
+
+.green {
+   --primary-background: hsl(109 50% 90%);
+   --primary-text: hsl(109 50% 15%);
+   --header-background: hsl(109 50% 100%);
+   --header-text: hsl(109 50% 25%);
+   --footer-background: hsl(109 50% 100%);
+   --footer-text: hsl(109 50% 25%);
+}
+
+.dark {
+   --primary-background: hsl(209 50% 10%);
+   --primary-text: hsl(209 50% 90%);
+   --header-background: hsl(209 50% 5%);
+   --header-text: hsl(209 50% 80%);
+   --footer-background: hsl(209 50% 5%);
+   --footer-text: hsl(209 50% 80%);
+}

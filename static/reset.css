@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+:root {
+   --primary-background: #ffffff;
+   --primary-text: #212121;
+   --header-background: #242526;
+   --header-text: rgb(245, 246, 247);
+   --footer-background: rgb(74, 70, 57);
+   --footer-text: rgb(235, 237, 240);
+   --active-background: rgba(129, 139, 152, 0.1);
+   --border: #000000;
+   --p-max-width: 75ch;
+}
+
+html {
+   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+   text-rendering: optimizelegibility;
+   color-scheme: dark light;
+   scroll-behavior: smooth;
+}
+
+body {
+   background-color: var(--primary-background);
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+   max-width: 100%;
+   display: block;
+}
+
+/* Improved heading in supported browsers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   text-wrap: balance;
+}
+
+/* improve readability with max-width on paragraphs and lists */
+/* prevent orphans in supported browsers */
+p,
+li {
+   max-width: var(--p-max-width);
+   text-wrap: pretty;
+}
+
+:root:has(#theme [value="☀️"]:checked) {
+   color-scheme: light;
+   --primary-background: #ffffff;
+   --primary-text: #212121;
+   --header-background: #242526;
+   --header-text: rgb(245, 246, 247);
+   --footer-background: rgb(74, 70, 57);
+   --footer-text: rgb(235, 237, 240);
+   --border: #000000;
+}
+
+ul[role='list'],
+ol[role='list'] {
+   list-style: none;
+}
+
+a:not([class]) {
+   text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+   max-width: 100%;
+   height: auto;
+   vertical-align: middle;
+   font-style: italic;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html:focus-within {
+      scroll-behavior: auto;
+   }
+
+   *,
+   *::before,
+   *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition: none;
+   }
+}
