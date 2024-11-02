@@ -13,10 +13,10 @@
    display: flex;
    gap: 2rem;
    width: fit-content;
-   background-color: white;
-   padding: 1rem 3rem;
+   background-color: var(--header-text);
+   padding: 1rem 1.5rem;
    margin-inline: auto;
-   border-radius: 0 0 1rem 1rem;
+   border-radius: 1rem;
 }
 
 .color-picker input[type="radio"] {
@@ -26,6 +26,7 @@
    outline: 3px solid var(--radio-color, currentColor);
    outline-offset: 3px;
    border-radius: 50%;
+   cursor: pointer;
 }
 
 .color-picker input[type="radio"]:checked {
@@ -57,9 +58,7 @@
    --primary-text: hsl(310 50% 15%);
    --header-background: hsl(310 50% 100%);
    --header-text: hsl(310 50% 25%);
-   --footer-background: hsl(310 50% 100%);
-   --footer-text: hsl(310 50% 25%);
-
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 :root:has(#blue:checked) {
@@ -67,8 +66,7 @@
    --primary-text: hsl(209 50% 15%);
    --header-background: hsl(209 50% 100%);
    --header-text: hsl(209 50% 25%);
-   --footer-background: hsl(209 50% 100%);
-   --footer-text: hsl(209 50% 25%);
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 :root:has(#green:checked) {
@@ -76,17 +74,15 @@
    --primary-text: hsl(109 50% 15%);
    --header-background: hsl(109 50% 100%);
    --header-text: hsl(109 50% 25%);
-   --footer-background: hsl(109 50% 100%);
-   --footer-text: hsl(109 50% 25%);
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 :root:has(#dark:checked) {
    --primary-background: hsl(209 50% 10%);
    --primary-text: hsl(209 50% 90%);
    --header-background: hsl(209 50% 5%);
-   --header-text: hsl(209 50% 80%);
-   --footer-background: hsl(209 50% 5%);
-   --footer-text: hsl(209 50% 80%);
+   --header-text: hsl(209 50% 60%);
+   --active-background: hsl(209 50% 80%);
 }
 
 .pink {
@@ -94,8 +90,7 @@
    --primary-text: hsl(310 50% 15%);
    --header-background: hsl(310 50% 100%);
    --header-text: hsl(310 50% 25%);
-   --footer-background: hsl(310 50% 100%);
-   --footer-text: hsl(310 50% 25%);
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 .blue {
@@ -103,8 +98,7 @@
    --primary-text: hsl(209 50% 15%);
    --header-background: hsl(209 50% 100%);
    --header-text: hsl(209 50% 25%);
-   --footer-background: hsl(209 50% 100%);
-   --footer-text: hsl(209 50% 25%);
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 .green {
@@ -112,15 +106,27 @@
    --primary-text: hsl(109 50% 15%);
    --header-background: hsl(109 50% 100%);
    --header-text: hsl(109 50% 25%);
-   --footer-background: hsl(109 50% 100%);
-   --footer-text: hsl(109 50% 25%);
+   --active-background: rgba(129, 139, 152, 0.1);
 }
 
 .dark {
    --primary-background: hsl(209 50% 10%);
    --primary-text: hsl(209 50% 90%);
    --header-background: hsl(209 50% 5%);
-   --header-text: hsl(209 50% 80%);
-   --footer-background: hsl(209 50% 5%);
-   --footer-text: hsl(209 50% 80%);
+   --header-text: hsl(209 50% 60%);
+   --active-background: hsl(209 50% 80%);
+}
+
+@media only screen and (max-width: 600px) {
+
+   .color-picker {
+
+      margin: auto;
+
+      > fieldset {
+         padding: 1rem;
+         margin-top: 10px;
+         height: 3rem;
+      }
+   }
 }

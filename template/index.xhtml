@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.adacore.com/namespaces/tal">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <meta name="generator" content="GNATdoc" />
   <title>GNATdoc</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel='stylesheet' href='reset.css' />
-  <link rel='stylesheet' href='themes.css' />
-  <link rel='stylesheet' href='gnatdoc.css' />
+  <link rel='stylesheet' href='themes.css' media="screen"/>
+  <link rel='stylesheet' href='index.css' />
   <link rel='stylesheet' href='sidebar.css' />
+  <link rel='stylesheet' href='search.css' />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <script type="text/javascript">
+    function iframeLoaded() {
+        var iFrameID = document.getElementById('content-iframe');
+        if(iFrameID) {
 
+              iFrameID.height = "";
+              iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+        }
+    }
+  </script>
 </head>
+
 <body>
   <header>
-    <img src="ada_logo_resized.png"/>
-    <div>
+    <div class="full-width">
+      <a href="index.html" aria-label="Reload page index">
+        <svg id="svg_root" xmlns="http://www.w3.org/2000/svg" viewBox="10.12 86.67 277 128.9">
+          <rect id="svg_frame" width="300" height="300" style="fill:none;stroke-width:10" stroke="none" />
+          <g transform="translate(8, 40)">
+            <g transform="matrix(1.3333333,0,0,-1.3333333,0,199.99999)" id="g10">
+              <g transform="scale(0.095)">
+                <path id="svg_logo" fill="#000000"
+                  style="fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.79978472"
+                  d="m 1735.94,608.49687 c 0,38.89593 40.941,53.21687 107.491,60.38695 55.2652,6.13914 99.2853,15.35507 127.9496,33.7789 v -49.13077 c 0,-58.64022 -49.3706,-87.16455 -115.2809,-93.67799 -26.8888,2.49933 -55.0253,4.84269 -84.2414,6.98213 -22.7299,8.66966 -35.9183,23.40009 -35.9183,41.66078 z M 461.48704,591.09515 h 283.55808 l 23.26574,-68.80948 C 646.26531,500.07325 524.76681,470.81552 407.55436,433.93505 Z M 602.76101,1008.7364 702.04709,716.99567 H 503.45974 Z M 1233.3232,862.35414 c 74.732,0 135.1237,-67.56661 135.1237,-151.49682 0,-59.35602 -31.7914,-110.48307 -77.6991,-134.22627 -34.5746,-1.15649 -69.5972,-2.74967 -104.9637,-4.81151 -51.1783,20.68164 -87.5764,73.93291 -87.5764,139.03778 0,85.98246 60.3917,151.49682 135.1155,151.49682 z m 864.1035,-333.2423 c -0.072,1.93708 -0.1439,3.85896 -0.1439,5.67047 v 274.34536 c 0,41.96311 -16.3717,180.15792 -230.3141,180.15792 -138.1948,0 -234.4248,-74.7271 -247.7333,-175.0441 h 135.1316 c 12.2848,45.04468 67.5659,66.5389 115.6809,66.5389 60.3838,0 96.2061,-22.52513 96.2061,-50.15851 0,-42.98843 -62.4392,-53.23607 -150.4715,-61.42107 -116.6886,-10.23163 -215.9899,-40.94257 -215.9899,-159.68821 0,-11.79363 1.1837,-22.90024 3.2552,-33.4598 -32.3513,1.17169 -65.5504,2.03066 -99.4852,2.53052 V 1210.3941 H 1368.4469 V 925.81466 c -40.941,38.90154 -94.1826,61.42347 -155.5981,61.42347 -137.1711,0 -250.79646,-118.73604 -250.79646,-275.36588 0,-58.3403 16.0277,-111.482 43.24426,-155.14225 -33.88676,-3.7182 -67.91766,-7.96666 -102.02046,-12.74697 L 688.73788,1159.2078 H 517.79029 L 245.16046,376.71605 C 165.53549,345.41168 88.946415,310.13957 16.762722,270.71018 366.24067,423.18755 1228.0367,629.60079 2203.4541,503.15082 c -4.6546,5.16981 -42.4765,15.02716 -106.0274,25.96102" />
+              </g>
+            </g>
+          </g>
+          <g id="svg_subtext" fill="#000000" transform="translate(185, 215) scale(0.552) ">
+            <path
+              d="M30-49C27-50 26-50 24-50L6-50L6 0L23 0C26 0 27 0 30-0C41-2 50-10 50-25C50-41 41-48 30-49ZM28-8C26-8 24-8 22-8L16-8L16-42L22-42C25-42 26-42 28-42C35-41 40-35 40-25C40-15 35-9 28-8ZM81-51C66-51 56-40 56-25C56-9 66 1 81 1C96 1 105-9 105-25C105-40 96-51 81-51ZM81-6C72-6 67-13 67-25C67-37 72-43 81-43C90-43 95-37 95-25C95-13 90-6 81-6ZM135-51C122-51 111-41 111-25C111-9 121 1 135 1C147 1 156-6 157-16L157-17L147-17L147-16C145-10 142-6 135-6C128-6 122-13 122-25C122-36 127-43 135-43C142-43 146-40 147-34L147-33L157-33L157-34C156-43 149-51 135-51Z" />
+          </g>
+        </svg>
+      </a>
+    </div>
+    <div id="search_component" class="full-width centered">
+      <button id="search_trigger">Search <abbr class="shortcut"
+          title="Use the shortcut Control K to open the search">ctrl k</abbr></button>
+      <dialog class="container" id="searchResults">
+        <div id="dialog_content">
+          <div class="searchbar">
+            <input class="search" type="search" placeholder="Search documentation" id="search" />
+            <button id="closeModal" title="Close search dialog">X</button>
+          </div>
+          <nav class="search-display">
+            <ul></ul>
+          </nav>
+          <div id="searchdata-container"></div>
+        </div>
+        <a href="#dialog_content" class="back-to-top-link scrolltop" aria-label="Scroll to Top">Goto Top</a>
+      </dialog>
+    </div>
+    <div class="full-width end">
       <form class="color-picker" action="">
         <fieldset>
           <legend class="visually-hidden">Pick a color scheme</legend>
           <label for="light" class="visually-hidden">Light</label>
-          <input type="radio" name="theme" id="light" checked="checked"/>
+          <input type="radio" name="theme" id="light" checked="checked" />
 
           <label for="pink" class="visually-hidden">Pink theme</label>
-          <input type="radio" id="pink" name="theme"/>
+          <input type="radio" id="pink" name="theme" />
 
           <label for="blue" class="visually-hidden">Blue theme</label>
-          <input type="radio" id="blue" name="theme"/>
+          <input type="radio" id="blue" name="theme" />
 
           <label for="green" class="visually-hidden">Green theme</label>
           <input type="radio" id="green" name="theme" />
@@ -37,41 +87,53 @@
         </fieldset>
       </form>
     </div>
-    <div>
-      <input />
-    </div>
   </header>
-  <div id="main">
-    <main class='content'>
-      <iframe id="content-iframe" name='document-content' />
-    </main>
-    <div id="sidebar-wrapper">
-      <nav>
-        <div class="nav-title">
+  <main>
+    <div class='content'>
+      <iframe id="content-iframe" onload="iframeLoaded()" name='document-content' allowtransparency="true" title="Main content"/>
+    </div>
+    <aside id="sidebar-wrapper">
+      <div class="nav-filter">
+        <input type="search" name="searchfilter" placeholder="Filter" id="outer_filter" oninput="filterFunction(this.value)" />
+        <button type="button" id="previous-button">&lt;</button>
+        <button type="button" id="next-button">&gt;</button>
+      </div>
+      <nav id="top">
+        <h3 class="toggle show nav-title">
           Compilation Units
-        </div>
+        </h3>
         <ul role="list">
-          <li class="spec" tal:repeat='item gnatdoc/toc'>
+          <li tal:repeat='item gnatdoc/toc'>
             <a href='error.html' target='document-content' tal:content='item/qualified_name'
               tal:attributes='href item/full_href' />
           </li>
         </ul>
+        <select>
+          <option value="0" selected="selected">Select</option>
+          <option tal:repeat='item gnatdoc/toc' tal:attributes='value item/full_href' tal:content='item/qualified_name' />
+        </select>
       </nav>
-
       <nav>
-        <div class="nav-title">
+        <h3 class="toggle show nav-title">
           Tagged types
-        </div>
+        </h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/classes_toc'>
             <a href='error.html' target='document-content' tal:content='item/qualified_name'
               tal:attributes='href item/full_href' />
           </li>
         </ul>
+        <select >
+          <option value="0" selected="selected">Select</option>
+          <option tal:repeat='item gnatdoc/classes_toc'  tal:attributes='value item/full_href' tal:content='item/qualified_name' />
+        </select>
       </nav>
-    </div>
-  </div>
-  <script src="script.js"></script>
+      <a href="#top" id="scrolltop" class="scrolltop">Goto Top</a>
+    </aside>
+  </main>
+  <script src="index.js"></script>
+  <script src="sidebar.js"></script>
+  <script src="themes.js"></script>
+  <script src="search.js"></script>
 </body>
-
 </html>

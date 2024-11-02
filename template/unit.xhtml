@@ -1,115 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" class='main' xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.adacore.com/namespaces/tal">
-
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="generator" content="GNATdoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>GNATdoc</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel='stylesheet' href='reset.css' />
-  <link rel='stylesheet' href='themes.css' />
+  <link rel='stylesheet' href='themes.css' media="screen"/>
   <link rel='stylesheet' href='sidebar.css' />
   <link rel='stylesheet' href='iframe.css' />
+  <link rel='stylesheet' href='github.min.css' />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <script src="highlight.min.js"></script>
+  <script src="ada.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
 <body class='content'>
-  <div class="page-content-wrapper">
-    <div id="description">
-      <div class="section-title">Description</div>
-      <div tal:omit-tag='' tal:content='gnatdoc/entity/documentation/description'>Description of the entity</div>
-    </div>
-    <div tal:omit-tag='' tal:repeat='item gnatdoc/entity/all'>
-      <div class="entity" tal:attributes='id item/id'>
-        <div class="section-title" tal:content='item/name' >Entity Name</div>
-        <div tal:omit-tag='' tal:content='item/documentation/description'>Description of the entity</div>
-        <pre class='ada-code-snippet'>
+  <main>
+    <article class="page-content-wrapper prose">
+      <div id="top1"></div>
+      <div id="description">
+        <div tal:omit-tag='' tal:content='gnatdoc/entity/documentation/description'>Description of the entity</div>
+      </div>
+      <div tal:omit-tag='' tal:repeat='item gnatdoc/entity/all'>
+        <section class="entity" itemscope="itemscope" tal:attributes='id item/id'>
+          <h2 itemprop="name" class="section-title" tal:content='item/name'>Entity Name</h2>
+          <div tal:omit-tag='' tal:content='item/documentation/description'>Description of the entity</div>
+          <pre class="ada-code-snippet language-ada">
         <code xml:space='preserve' tal:content='item/code'>Source code of the entity declaration</code>
       </pre>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/enumeration_literals'>
-          <table class="parameters">
-            <caption>Enumeration Literal</caption>
-            <tbody>
-              <div tal:omit-tag='' tal:repeat='literal item/documentation/enumeration_literals'>
-                <tr>
-                  <td tal:content='literal/name'>Name of the literal</td>
-                  <td tal:content='literal/description'>Description of the literal</td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-        </div>
+          <div tal:omit-tag='' tal:condition='item/documentation/enumeration_literals'>
+            <table class="parameters">
+              <caption>Enumeration Literal</caption>
+              <tbody>
+                <div tal:omit-tag='' tal:repeat='literal item/documentation/enumeration_literals'>
+                  <tr>
+                    <td itemprop="literal" tal:content='literal/name'>Name of the literal</td>
+                    <td tal:content='literal/description'>Description of the literal</td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/fields'>
-          <table class="parameters">
-            <caption>Record fields</caption>
-            <tbody>
-              <div tal:omit-tag='' tal:repeat='formal item/documentation/fields'>
-                <tr>
-                  <td tal:content='formal/name'>Name of the field</td>
-                  <td tal:content='formal/description'>Description of the field</td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-        </div>
+          <div tal:omit-tag='' tal:condition='item/documentation/fields'>
+            <table class="parameters">
+              <caption>Record fields</caption>
+              <tbody>
+                <div tal:omit-tag='' tal:repeat='formal item/documentation/fields'>
+                  <tr>
+                    <td itemprop="fieldname" tal:content='formal/name'>Name of the field</td>
+                    <td tal:content='formal/description'>Description of the field</td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/formals'>
-          <table class="parameters">
-            <caption>Generic formal parameters</caption>
-            <tbody>
-              <div tal:omit-tag='' tal:repeat='formal item/documentation/formals'>
-                <tr>
-                  <td tal:content='formal/name'>name of the parameter</td>
-                  <td tal:content='formal/description'>description of the parameter</td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-        </div>
+          <div tal:omit-tag='' tal:condition='item/documentation/formals'>
+            <table class="parameters">
+              <caption>Generic formal parameters</caption>
+              <tbody>
+                <div tal:omit-tag='' tal:repeat='formal item/documentation/formals'>
+                  <tr>
+                    <td itemprop="parameter" tal:content='formal/name'>name of the parameter</td>
+                    <td tal:content='formal/description'>description of the parameter</td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/parameters'>
-          <table class="parameters">
-            <caption>Parameters</caption>
-            <tbody>
-              <div tal:omit-tag='' tal:repeat='parameter item/documentation/parameters'>
-                <tr>
-                  <td tal:content='parameter/name'>Name of the parameter</td>
-                  <td tal:content='parameter/description'>Description of the parameter</td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-        </div>
+          <div tal:omit-tag='' tal:condition='item/documentation/parameters'>
+            <table class="parameters">
+              <caption>Parameters</caption>
+              <tbody>
+                <div tal:omit-tag='' tal:repeat='parameter item/documentation/parameters'>
+                  <tr>
+                    <td itemprop="parameter" tal:content='parameter/name'>Name of the parameter</td>
+                    <td tal:content='parameter/description'>Description of the parameter</td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/returns'>
-          <section class="description">
-            <div class="title">Return Value</div>
-            <div tal:omit-tag='' tal:repeat='return item/documentation/returns'>
-              <div tal:content='return/description'>Description of the return value</div>
+          <div tal:omit-tag='' tal:condition='item/documentation/returns'>
+            <div class="description">
+              <div class="title">Return Value</div>
+              <div tal:omit-tag='' tal:repeat='return item/documentation/returns'>
+                <div itemprop="returnvalue" tal:content='return/description'>Description of the return value</div>
+              </div>
             </div>
-          </section>
-        </div>
+          </div>
 
-        <div tal:omit-tag='' tal:condition='item/documentation/exceptions'>
-          <table class="parameters">
-            <caption>Raised exceptions</caption>
-            <tbody>
-              <div tal:omit-tag='' tal:repeat='exception item/documentation/exceptions'>
-                <tr>
-                  <td tal:content='exception/name'>name of the exception</td>
-                  <td tal:content='exception/description'>description of the exception</td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-        </div>
+          <div tal:omit-tag='' tal:condition='item/documentation/exceptions'>
+            <table class="parameters">
+              <caption>Raised exceptions</caption>
+              <tbody>
+                <div tal:omit-tag='' tal:repeat='exception item/documentation/exceptions'>
+                  <tr>
+                    <td itemprop="exceptions" tal:content='exception/name'>name of the exception</td>
+                    <td tal:content='exception/description'>description of the exception</td>
+                  </tr>
+                </div>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
+    </article>
+    <a href="#top1" id="scrolltop2" class="scrolltop">Goto Top</a>
+  </main>
+  <aside id="sidebar-wrapper">
+    <div class="nav-filter">
+      <input type="search" placeholder="Filter" id="inner_filter" oninput="filterFunction(this.value)" />
+      <button type="button" id="previous-button">&lt;</button>
+      <button type="button" id="next-button">&gt;</button>
     </div>
-  </div>
-  <div id="sidebar-wrapper">
+    <div id="top"></div>
     <div tal:omit-tag='' tal:condition='gnatdoc/entity/formals'>
       <nav>
-        <div class="nav-title">Generic formal parameters</div>
+        <h3 class="toggle show nav-title">Generic formal parameters</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/formals'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -120,7 +137,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/exceptions">
       <nav>
-        <div class="nav-title">Exceptions</div>
+        <h3 class="toggle show nav-title">Exceptions</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/exceptions'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -131,7 +148,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/simple_types">
       <nav>
-        <div class="nav-title">Simple Types</div>
+        <h3 class="toggle show nav-title">Simple Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/simple_types'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -142,7 +159,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/array_types">
       <nav>
-        <div class="nav-title">Array Types</div>
+        <h3 class="toggle show nav-title">Array Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/array_types'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -153,7 +170,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/record_types">
       <nav>
-        <div class="nav-title">Record Types</div>
+        <h3 class="toggle show nav-title">Record Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/record_types'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -164,7 +181,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/interface_types">
       <nav>
-        <div class="nav-title">Interface Types</div>
+        <h3 class="toggle show nav-title">Interface Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/interface_types'>
             <a href='#' tal:condition='not:gnatdoc/oop_mode' tal:attributes='href item/local_href'
@@ -177,7 +194,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/tagged_types">
       <nav>
-        <div class="nav-title">Tagged Types</div>
+        <h3 class="toggle show nav-title">Tagged Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/tagged_types'>
             <a href='#' tal:condition='not:gnatdoc/oop_mode' tal:attributes='href item/local_href'
@@ -190,7 +207,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/task_types">
       <nav>
-        <div class="nav-title">Task Types and Tasks</div>
+        <h3 class="toggle show nav-title">Task Types and Tasks</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/task_types'>
             <a href='#' tal:attributes='href item/full_href' tal:content='item/name' />
@@ -201,7 +218,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/protected_types">
       <nav>
-        <div class="nav-title">Protected Types and Protected Objects</div>
+        <h3 class="toggle show nav-title">Protected Types and Protected Objects</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/protected_types'>
             <a href='#' tal:attributes='href item/full_href' tal:content='item/name' />
@@ -212,7 +229,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/access_types">
       <nav>
-        <div class="nav-title">Access Types</div>
+        <h3 class="toggle show nav-title">Access Types</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/access_types'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -223,7 +240,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/subtypes">
       <nav>
-        <div class="nav-title">Subtypes</div>
+        <h3 class="toggle show nav-title">Subtypes</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/subtypes'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -234,7 +251,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/constants">
       <nav>
-        <div class="nav-title">Constants</div>
+        <h3 class="toggle show nav-title">Constants</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/constants'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -245,7 +262,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/variables">
       <nav>
-        <div class="nav-title">Variables</div>
+        <h3 class="toggle show nav-title">Variables</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/variables'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -256,7 +273,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/entries">
       <nav>
-        <div class="nav-title">Entries</div>
+        <h3 class="toggle show nav-title">Entries</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/entries'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -267,7 +284,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/subprograms">
       <nav>
-        <div class="nav-title">Subprograms</div>
+        <h3 class="toggle show nav-title">Subprograms</h3>
         <ul role="list">
           <li tal:repeat='subprogram gnatdoc/entity/subprograms'>
             <a href='#' tal:attributes='href subprogram/local_href' tal:content='subprogram/name' />
@@ -278,7 +295,7 @@
 
     <div tal:omit-tag="" tal:condition="gnatdoc/entity/generic_instantiations">
       <nav>
-        <div class="nav-title">Generic Instantiations</div>
+        <h3 class="toggle show nav-title">Generic Instantiations</h3>
         <ul role="list">
           <li tal:repeat='item gnatdoc/entity/generic_instantiations'>
             <a href='#' tal:attributes='href item/local_href' tal:content='item/name' />
@@ -286,8 +303,9 @@
         </ul>
       </nav>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <a href="#top" id="scrolltop" class="scrolltop">Goto Top</a>
+  </aside>
+  <script src="iframe.js"></script>
+  <script src="sidebar.js"></script>
 </body>
-
 </html>

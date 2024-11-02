@@ -13,12 +13,11 @@
    --primary-background: #ffffff;
    --primary-text: #212121;
    --header-background: #242526;
-   --header-text: rgb(245, 246, 247);
-   --footer-background: rgb(74, 70, 57);
-   --footer-text: rgb(235, 237, 240);
-   --active-background: rgba(129, 139, 152, 0.1);
-   --border: #000000;
+   --header-text: rgba(129, 139, 152, 0.3);
+   --active-background: rgba(129, 139, 152, 0.3);
+   --search-height: 70vh;
    --p-max-width: 75ch;
+   --header-size: 53px;
 }
 
 html {
@@ -26,10 +25,33 @@ html {
    text-rendering: optimizelegibility;
    color-scheme: dark light;
    scroll-behavior: smooth;
+   -moz-text-size-adjust: none;
+   -webkit-text-size-adjust: none;
+   text-size-adjust: none;
+   interpolate-size: allow-keywords;
 }
 
 body {
    background-color: var(--primary-background);
+   accent-color: var(--primary-background);
+   overflow: hidden;
+}
+
+table,
+math,
+time[datetime*=":"] {
+   font-variant-numeric: tabular-nums lining-nums;
+}
+
+.prose {
+   font-variant-numeric: oldstyle-nums;
+}
+
+.prose abbr {
+   font-variant-caps: all-small-caps;
+}
+.tech {
+   font-variant-numeric: diagonal-fractions;
 }
 
 /* responsive images/videos */
@@ -53,8 +75,7 @@ h6 {
 
 /* improve readability with max-width on paragraphs and lists */
 /* prevent orphans in supported browsers */
-p,
-li {
+p {
    max-width: var(--p-max-width);
    text-wrap: pretty;
 }
@@ -64,10 +85,10 @@ li {
    --primary-background: #ffffff;
    --primary-text: #212121;
    --header-background: #242526;
-   --header-text: rgb(245, 246, 247);
-   --footer-background: rgb(74, 70, 57);
-   --footer-text: rgb(235, 237, 240);
-   --border: #000000;
+   --header-text: rgba(129, 139, 152, 0.3);
+   --active-background: rgba(129, 139, 152, 0.3);
+   --selection-background: hotpink;
+   --selection-text: white;
 }
 
 ul[role='list'],
@@ -92,6 +113,10 @@ canvas {
    background-size: cover;
 }
 
+button:not(:disabled) {
+   cursor: pointer;
+}
+
 input,
 button,
 textarea,
@@ -99,6 +124,20 @@ select {
    font: inherit;
 }
 
+:target {
+   scroll-margin-block: 2lh;
+}
+
+:is(a:link, a:hover, a:visited, a:active) {
+   color: var(--primary-text);
+   text-decoration: none;
+}
+.d-none {
+   display: none;
+}
+.d-block {
+   display: block;
+}
 @media (prefers-reduced-motion: reduce) {
    html:focus-within {
       scroll-behavior: auto;

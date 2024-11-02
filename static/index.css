@@ -1,0 +1,101 @@
+main {
+  display: flex;
+  flex: auto;
+}
+
+main .content {
+  display: flex;
+  flex-grow: 3;
+}
+
+.document-content {
+  flex: auto;
+}
+
+iframe {
+  margin: 0;
+  height: calc(100svh - var(--header-size));
+  width: 100%;
+  border: 0;
+}
+
+.content {
+  margin: 0 auto;
+  background-image: linear-gradient(to right, hsl(from var(--primary-background) h s 80%), hsl(from var(--primary-background) h s 20%));
+}
+
+svg#svg_root {
+  mix-blend-mode: difference;
+  width: 100px;
+}
+
+svg path#svg_logo,
+svg #svg_subtext {
+  fill: #fff;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.end {
+  display: flex;
+  justify-content: end;
+}
+
+#scrolltop {
+  right: 1.5rem;
+}
+
+header {
+  background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+  color: var(--header-text);
+  display: flex;
+  padding: 1rem 1.5rem;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow: visible;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 1rem 0.5rem 0.5rem;
+  }
+
+  main {
+    flex-direction: column-reverse;
+    overflow: visible;
+  }
+
+  nav#top {
+    margin: 0;
+  }
+
+  main .content {
+    margin: 0;
+    overflow: visible;
+  }
+
+  .entity {
+    width: 96vw;
+  }
+
+  :root {
+    --p-max-width: 96vw;
+  }
+
+  .page-content-wrapper {
+    margin: 0;
+    padding: 0;
+    min-width: none;
+    max-width: none;
+  }
+}

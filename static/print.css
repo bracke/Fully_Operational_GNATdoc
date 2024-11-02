@@ -1,0 +1,50 @@
+:root {
+   --primary-background: white;
+   --primary-text: black;
+   --header-background: white;
+   --header-text: black;
+   --active-background: black;
+   --p-max-width: none;
+
+}
+.body {
+   font-size: 18pt;
+   margin: 10,7 mm;
+ }
+ /* Reset styles */
+ *,
+ *:before,
+ *:after,
+ *:first-letter,
+ p:first-line,
+ div:first-line,
+ blockquote:first-line,
+ li:first-line {
+   background: transparent !important;
+   color: #000 !important;
+   box-shadow: none !important;
+   text-shadow: none !important;
+ }
+ /* Only print main */
+ body > *:not(main), #sidebar-wrapper, #top1  {
+   display: none;
+ }
+ .page-content-wrapper {
+   overflow: visible;
+   max-width: none;
+   min-width: none;
+   padding: 0;
+   margin: 0;
+   height: 100%;
+ }
+ pre code.hljs {
+   overflow: visible;
+   background: none !important;
+   white-space: wrap;
+   max-width: none;
+   min-width: none;
+   padding-left: 0;
+ }
+ body {
+   overflow: visible;
+ }
